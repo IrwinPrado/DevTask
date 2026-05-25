@@ -101,6 +101,15 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     testImplementation(libs.junit)
+
+    // Firebase BOM — garantiza versiones compatibles entre librerías Firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+
+// Crashlytics — monitoreo de crashes en tiempo real
+    implementation("com.google.firebase:firebase-crashlytics-ktx")
+
+// Analytics — métricas de uso
+    implementation("com.google.firebase:firebase-analytics-ktx")
 }
 
 // Necesario para que kapt no falle con tipos incorrectos

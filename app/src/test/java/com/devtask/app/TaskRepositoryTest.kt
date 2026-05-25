@@ -65,8 +65,10 @@ class TaskRepositoryTest {
             title = "Tarea vencida",
             dueDate = LocalDateTime.now().minusDays(1)
         )
-        val isOverdue = task.dueDate != null &&
-                task.dueDate.isBefore(LocalDateTime.now()) &&
+        // Guardamos dueDate en variable local para que Kotlin pueda hacer smart cast
+        val dueDate = task.dueDate
+        val isOverdue = dueDate != null &&
+                dueDate.isBefore(LocalDateTime.now()) &&
                 task.status != TaskStatus.COMPLETED
         assertTrue(isOverdue)
     }
@@ -79,8 +81,10 @@ class TaskRepositoryTest {
             dueDate = LocalDateTime.now().minusDays(1),
             status = TaskStatus.COMPLETED
         )
-        val isOverdue = task.dueDate != null &&
-                task.dueDate.isBefore(LocalDateTime.now()) &&
+        // Guardamos dueDate en variable local para que Kotlin pueda hacer smart cast
+        val dueDate = task.dueDate
+        val isOverdue = dueDate != null &&
+                dueDate.isBefore(LocalDateTime.now()) &&
                 task.status != TaskStatus.COMPLETED
         assertFalse(isOverdue)
     }

@@ -1,9 +1,13 @@
 // Activamos los plugins que este módulo necesita
 plugins {
-    alias(libs.plugins.android.application)  // Plugin principal de Android
-    alias(libs.plugins.kotlin.android)       // Soporte para Kotlin
-    alias(libs.plugins.kotlin.kapt)          // Procesador de anotaciones (Room y Hilt lo necesitan)
-    alias(libs.plugins.hilt.android)         // Inyección de dependencias con Hilt
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt.android)
+    // Plugins de Firebase
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
+
 }
 
 android {

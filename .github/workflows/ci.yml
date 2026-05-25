@@ -29,6 +29,12 @@ jobs:
       - name: Grant execute permission to gradlew
         run: chmod +x gradlew
 
+      # Decodifica y coloca el google-services.json desde los secretos
+      - name: Decode google-services.json
+        run: |
+          echo "${{ secrets.GOOGLE_SERVICES_JSON }}" > encoded.txt
+          certutil -decode encoded.txt app/google-services.json
+
       # 4. Corre las pruebas unitarias y genera reporte
       - name: Run unit tests
         run: ./gradlew test --no-daemon
